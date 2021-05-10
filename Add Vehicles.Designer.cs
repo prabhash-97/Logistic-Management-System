@@ -88,7 +88,7 @@
             // txtVehicleId
             // 
             this.txtVehicleId.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVehicleId.Location = new System.Drawing.Point(180, 13);
+            this.txtVehicleId.Location = new System.Drawing.Point(166, 13);
             this.txtVehicleId.Mask = "LL/0000";
             this.txtVehicleId.Name = "txtVehicleId";
             this.txtVehicleId.Size = new System.Drawing.Size(143, 26);
