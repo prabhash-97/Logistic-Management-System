@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Inventory));
             this.label7 = new System.Windows.Forms.Label();
             this.txtVehicleId = new System.Windows.Forms.MaskedTextBox();
-            this.txtTyreNo = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox0 = new System.Windows.Forms.MaskedTextBox();
             this.dateAddToSetvi = new System.Windows.Forms.DateTimePicker();
             this.txtNoTyres = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -88,21 +88,21 @@
             // txtVehicleId
             // 
             this.txtVehicleId.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVehicleId.Location = new System.Drawing.Point(166, 13);
+            this.txtVehicleId.Location = new System.Drawing.Point(180, 13);
             this.txtVehicleId.Mask = "LL/0000";
             this.txtVehicleId.Name = "txtVehicleId";
             this.txtVehicleId.Size = new System.Drawing.Size(143, 26);
             this.txtVehicleId.TabIndex = 1;
             // 
-            // txtTyreNo
+            // maskedTextBox0
             // 
-            this.txtTyreNo.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTyreNo.Location = new System.Drawing.Point(6, 19);
-            this.txtTyreNo.Mask = "LL/00-0000";
-            this.txtTyreNo.Name = "txtTyreNo";
-            this.txtTyreNo.Size = new System.Drawing.Size(137, 26);
-            this.txtTyreNo.TabIndex = 58;
-            this.txtTyreNo.Visible = false;
+            this.maskedTextBox0.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox0.Location = new System.Drawing.Point(6, 19);
+            this.maskedTextBox0.Mask = "LL/00-0000";
+            this.maskedTextBox0.Name = "maskedTextBox0";
+            this.maskedTextBox0.Size = new System.Drawing.Size(137, 26);
+            this.maskedTextBox0.TabIndex = 6;
+            this.maskedTextBox0.Visible = false;
             // 
             // dateAddToSetvi
             // 
@@ -118,10 +118,10 @@
             // txtNoTyres
             // 
             this.txtNoTyres.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNoTyres.Location = new System.Drawing.Point(164, 175);
+            this.txtNoTyres.Location = new System.Drawing.Point(180, 175);
             this.txtNoTyres.Name = "txtNoTyres";
             this.txtNoTyres.Size = new System.Drawing.Size(143, 26);
-            this.txtNoTyres.TabIndex = 4;
+            this.txtNoTyres.TabIndex = 5;
             this.txtNoTyres.TextChanged += new System.EventHandler(this.txtNoTyres_TextChanged);
             // 
             // label5
@@ -150,7 +150,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 16);
+            this.label1.Location = new System.Drawing.Point(20, 16);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
             this.label1.Size = new System.Drawing.Size(106, 31);
@@ -160,10 +160,11 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button5.Location = new System.Drawing.Point(212, 406);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(228, 395);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(90, 40);
-            this.button5.TabIndex = 7;
+            this.button5.TabIndex = 18;
             this.button5.Text = "Exit";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -171,10 +172,11 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button2.Location = new System.Drawing.Point(113, 406);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(120, 395);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 40);
-            this.button2.TabIndex = 5;
+            this.button2.TabIndex = 16;
             this.button2.Text = "Save";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -182,10 +184,11 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(17, 406);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(24, 395);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 40);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 17;
             this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -208,7 +211,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(365, 60);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(637, 454);
-            this.dataGridView1.TabIndex = 71;
+            this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
@@ -296,10 +299,10 @@
             this.txtBrowserType.Items.AddRange(new object[] {
             "60000 Ltrs.",
             "30000 Ltrs."});
-            this.txtBrowserType.Location = new System.Drawing.Point(166, 91);
+            this.txtBrowserType.Location = new System.Drawing.Point(180, 94);
             this.txtBrowserType.Name = "txtBrowserType";
-            this.txtBrowserType.Size = new System.Drawing.Size(141, 27);
-            this.txtBrowserType.TabIndex = 75;
+            this.txtBrowserType.Size = new System.Drawing.Size(143, 27);
+            this.txtBrowserType.TabIndex = 3;
             // 
             // label2
             // 
@@ -322,9 +325,9 @@
             this.groupBox2.Controls.Add(this.maskedTextBox2);
             this.groupBox2.Controls.Add(this.maskedTextBox1);
             this.groupBox2.Controls.Add(this.maskedTextBox8);
-            this.groupBox2.Controls.Add(this.txtTyreNo);
+            this.groupBox2.Controls.Add(this.maskedTextBox0);
             this.groupBox2.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(17, 209);
+            this.groupBox2.Location = new System.Drawing.Point(17, 207);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(300, 182);
             this.groupBox2.TabIndex = 73;
@@ -338,7 +341,7 @@
             this.maskedTextBox7.Mask = "LL/00-0000";
             this.maskedTextBox7.Name = "maskedTextBox7";
             this.maskedTextBox7.Size = new System.Drawing.Size(137, 26);
-            this.maskedTextBox7.TabIndex = 53;
+            this.maskedTextBox7.TabIndex = 13;
             this.maskedTextBox7.Visible = false;
             // 
             // maskedTextBox6
@@ -348,7 +351,7 @@
             this.maskedTextBox6.Mask = "LL/00-0000";
             this.maskedTextBox6.Name = "maskedTextBox6";
             this.maskedTextBox6.Size = new System.Drawing.Size(137, 26);
-            this.maskedTextBox6.TabIndex = 52;
+            this.maskedTextBox6.TabIndex = 12;
             this.maskedTextBox6.Visible = false;
             this.maskedTextBox6.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox6_MaskInputRejected);
             // 
@@ -359,7 +362,7 @@
             this.maskedTextBox5.Mask = "LL/00-0000";
             this.maskedTextBox5.Name = "maskedTextBox5";
             this.maskedTextBox5.Size = new System.Drawing.Size(137, 26);
-            this.maskedTextBox5.TabIndex = 51;
+            this.maskedTextBox5.TabIndex = 11;
             this.maskedTextBox5.Visible = false;
             // 
             // maskedTextBox4
@@ -369,7 +372,7 @@
             this.maskedTextBox4.Mask = "LL/00-0000";
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.Size = new System.Drawing.Size(137, 26);
-            this.maskedTextBox4.TabIndex = 50;
+            this.maskedTextBox4.TabIndex = 10;
             this.maskedTextBox4.Visible = false;
             this.maskedTextBox4.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox4_MaskInputRejected);
             // 
@@ -380,7 +383,7 @@
             this.maskedTextBox3.Mask = "LL/00-0000";
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(137, 26);
-            this.maskedTextBox3.TabIndex = 49;
+            this.maskedTextBox3.TabIndex = 9;
             this.maskedTextBox3.Visible = false;
             this.maskedTextBox3.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
             // 
@@ -391,7 +394,7 @@
             this.maskedTextBox2.Mask = "LL/00-0000";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(137, 26);
-            this.maskedTextBox2.TabIndex = 48;
+            this.maskedTextBox2.TabIndex = 8;
             this.maskedTextBox2.Visible = false;
             // 
             // maskedTextBox1
@@ -401,7 +404,7 @@
             this.maskedTextBox1.Mask = "LL/00-0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(137, 26);
-            this.maskedTextBox1.TabIndex = 47;
+            this.maskedTextBox1.TabIndex = 7;
             this.maskedTextBox1.Visible = false;
             // 
             // maskedTextBox8
@@ -411,25 +414,25 @@
             this.maskedTextBox8.Mask = "LL/00-0000";
             this.maskedTextBox8.Name = "maskedTextBox8";
             this.maskedTextBox8.Size = new System.Drawing.Size(137, 26);
-            this.maskedTextBox8.TabIndex = 46;
+            this.maskedTextBox8.TabIndex = 14;
             this.maskedTextBox8.Visible = false;
             // 
             // txtDriverId
             // 
             this.txtDriverId.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDriverId.FormattingEnabled = true;
-            this.txtDriverId.Location = new System.Drawing.Point(164, 132);
+            this.txtDriverId.Location = new System.Drawing.Point(180, 132);
             this.txtDriverId.Name = "txtDriverId";
             this.txtDriverId.Size = new System.Drawing.Size(143, 27);
-            this.txtDriverId.TabIndex = 3;
+            this.txtDriverId.TabIndex = 4;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(2, 7);
+            this.panel1.Location = new System.Drawing.Point(12, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(993, 47);
+            this.panel1.Size = new System.Drawing.Size(983, 47);
             this.panel1.TabIndex = 73;
             // 
             // label6
@@ -447,7 +450,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1007, 518);
+            this.ClientSize = new System.Drawing.Size(1007, 520);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
@@ -468,7 +471,7 @@
         #endregion
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox txtVehicleId;
-        private System.Windows.Forms.MaskedTextBox txtTyreNo;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox0;
         private System.Windows.Forms.DateTimePicker dateAddToSetvi;
         private System.Windows.Forms.TextBox txtNoTyres;
         private System.Windows.Forms.Label label5;

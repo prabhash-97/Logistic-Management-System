@@ -50,7 +50,7 @@ namespace ceylon_petroleum
         private void button2_Click(object sender, EventArgs e)
         {
             string vehicleid = txtVehicleId.Text;
-            string tyreserialno1 = txtTyreNo.Text;
+            string tyreserialno1 = maskedTextBox0.Text;
             string tyreserialno2 = maskedTextBox1.Text;
             string tyreserialno3 = maskedTextBox2.Text;
             string startdate = dateAddToSetvi.Text;
@@ -60,7 +60,7 @@ namespace ceylon_petroleum
             string browserType = txtBrowserType.Text;
             //float tyrecost=float.Parse(txtTyreCost.Text);
 
-            dataGridView1.Rows.Add(txtVehicleId.Text , txtBrowserType.Text , txtTyreNo.Text, dateAddToSetvi.Text, txtDriverId.Text,txtNoTyres.Text);
+            dataGridView1.Rows.Add(txtVehicleId.Text , txtBrowserType.Text , maskedTextBox0.Text, dateAddToSetvi.Text, txtDriverId.Text,txtNoTyres.Text);
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
@@ -92,14 +92,29 @@ namespace ceylon_petroleum
         private void button1_Click(object sender, EventArgs e)
         {
             txtVehicleId.Text = "";
-            txtTyreNo.Text = "";
+            maskedTextBox0.Text = "";
             txtVehicleId.Text = "";
-           // txtInsurenceCost.Text = "";
             txtNoTyres.Text = "";
             dateAddToSetvi.Value = DateTimePicker.MinimumDateTime;
             txtDriverId.Text = "";
-            // txtTyreCost.Text = "";
             txtBrowserType.Text = "";
+            maskedTextBox1.Text = "";
+            maskedTextBox2.Text = "";
+            maskedTextBox3.Text = "";
+            maskedTextBox4.Text = "";
+            maskedTextBox5.Text = "";
+            maskedTextBox6.Text = "";
+            maskedTextBox7.Text = "";
+            maskedTextBox8.Text = "";
+            maskedTextBox0.Visible = false;
+            maskedTextBox1.Visible = false;
+            maskedTextBox2.Visible = false;
+            maskedTextBox3.Visible = false;
+            maskedTextBox4.Visible = false;
+            maskedTextBox5.Visible = false;
+            maskedTextBox6.Visible = false;
+            maskedTextBox7.Visible = false;
+            maskedTextBox8.Visible = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -131,29 +146,29 @@ namespace ceylon_petroleum
         {
             if (txtNoTyres.Text == "1")
             {
-                txtTyreNo.Visible=true;
+               maskedTextBox0.Visible=true;
 
             }else if (txtNoTyres.Text == "2")
             {
-                txtTyreNo.Visible = true;
+                maskedTextBox0.Visible = true;
                 maskedTextBox1.Visible = true;
             }
             else if (txtNoTyres.Text == "3")
             {
-                txtTyreNo.Visible = true;
+                maskedTextBox0.Visible = true;
                 maskedTextBox1.Visible = true;
                 maskedTextBox2.Visible = true;
             }
             else if (txtNoTyres.Text == "4")
             {
-                txtTyreNo.Visible = true;
+                maskedTextBox0.Visible = true;
                 maskedTextBox1.Visible = true;
                 maskedTextBox2.Visible = true;
                 maskedTextBox3.Visible = true;
             }
             else if (txtNoTyres.Text == "5")
             {
-                txtTyreNo.Visible = true;
+                maskedTextBox0.Visible = true;
                 maskedTextBox1.Visible = true;
                 maskedTextBox2.Visible = true;
                 maskedTextBox3.Visible = true;
@@ -161,7 +176,7 @@ namespace ceylon_petroleum
             }
             else if (txtNoTyres.Text == "6")
             {
-                txtTyreNo.Visible = true;
+                maskedTextBox0.Visible = true;
                 maskedTextBox1.Visible = true;
                 maskedTextBox2.Visible = true;
                 maskedTextBox3.Visible = true;
@@ -170,7 +185,7 @@ namespace ceylon_petroleum
             }
             else if (txtNoTyres.Text == "7")
             {
-                txtTyreNo.Visible = true;
+                maskedTextBox0.Visible = true;
                 maskedTextBox1.Visible = true;
                 maskedTextBox2.Visible = true;
                 maskedTextBox3.Visible = true;
@@ -180,7 +195,7 @@ namespace ceylon_petroleum
             }
             else if (txtNoTyres.Text == "8")
             {
-                txtTyreNo.Visible = true;
+                maskedTextBox0.Visible = true;
                 maskedTextBox1.Visible = true;
                 maskedTextBox2.Visible = true;
                 maskedTextBox3.Visible = true;
@@ -191,7 +206,7 @@ namespace ceylon_petroleum
             }
             else if (txtNoTyres.Text == "9")
             {
-                txtTyreNo.Visible = true;
+                maskedTextBox0.Visible = true;
                 maskedTextBox1.Visible = true;
                 maskedTextBox2.Visible = true;
                 maskedTextBox3.Visible = true;

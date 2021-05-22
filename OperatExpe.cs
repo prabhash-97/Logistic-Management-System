@@ -17,7 +17,7 @@ namespace ceylon_petroleum
         public opexpe()
         {
             InitializeComponent();
-            LoadDataIntoDataGridView();
+            FillCombo();
         }
 
         void FillCombo()
@@ -49,7 +49,7 @@ namespace ceylon_petroleum
 
         private void LoadDataIntoDataGridView()
         {
-            SqlConnection con = new SqlConnection();
+           /* SqlConnection con = new SqlConnection();
             con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
@@ -58,12 +58,12 @@ namespace ceylon_petroleum
             SqlDataAdapter DA = new SqlDataAdapter(cmd);
             DataSet DS = new DataSet();
             DA.Fill(DS);
-            dataGridView2.DataSource = DS.Tables[0];
+            dataGridView2.DataSource = DS.Tables[0];*/
         }
 
         void update_delete_vehicel_table()
         {
-            if (exptype.Text == "TYRE REMOVE")
+          /*  if (exptype.Text == "TYRE REMOVE")
             {
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
@@ -92,7 +92,7 @@ namespace ceylon_petroleum
                 cmd.CommandText = "update vehicle_details set TyreSerialNo1 = case TyreSerialNo1 when null then '"+ this.txtNoTyres.Text +"' else end where VehicleID='" + this.txtvehiID.Text + "'; ";
                 cmd.ExecuteNonQuery();
                 con.Close();
-            }
+            }*/
         }
 
         private void expsubmit_Click(object sender, EventArgs e)
@@ -101,18 +101,29 @@ namespace ceylon_petroleum
             string BOWSER_NUMBER = txtvehiID.Text;
             string DATE = expdate.Text;
             string AMOUNT = expamount.Text;
+            string OTHERS = txtOthers.Text;
 
-            dataGridView1.Rows.Add(exptype.Text,txtNoTyres.Text,txtTyreNo.Text,maskedTextBox1.Text,maskedTextBox2.Text, txtvehiID.Text, expdate.Text, expamount.Text);
+            dataGridView1.Rows.Add(exptype.Text,txtOthers.Text, txtvehiID.Text, expdate.Text, expamount.Text);
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
-            con.Open();
-            cmd.CommandText = "insert into expenditure(Exp_type,Vehicle_Id,Date,Amount)values('" + EXP_TYPE + "','" + BOWSER_NUMBER + "','" + DATE + "','" + AMOUNT + "')";
-            update_delete_vehicel_table();
-            cmd.ExecuteNonQuery();
+            if (exptype.Text == "OTHER")
+            {
+                con.Open();
+                cmd.CommandText = "insert into expenditure(Exp_type,Vehicle_Id,Date,Amount)values('" + OTHERS + "','" + BOWSER_NUMBER + "','" + DATE + "','" + AMOUNT + "')";
+                update_delete_vehicel_table();
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                con.Open();
+                cmd.CommandText = "insert into expenditure(Exp_type,Vehicle_Id,Date,Amount)values('" + EXP_TYPE + "','" + BOWSER_NUMBER + "','" + DATE + "','" + AMOUNT + "')";
+                update_delete_vehicel_table();
+                cmd.ExecuteNonQuery();
+            }
             con.Close();
 
             /*MySqlConnection cnn = new MySqlConnection("datasource=127.0.0.1;port=3306;database=logisticmanagmentsystem;username=root;password=; convert zero datetime=TRUE");
@@ -137,13 +148,15 @@ namespace ceylon_petroleum
             txtvehiID.Text="";
             expdate.Text="";
             expamount.Text="";
-            txtNoTyres.Text = "";
+            txtOthers.Text = "";
+            txtOthers.Visible = false;
+            /*txtNoTyres.Text = "";
             maskedTextBox1.Text = " ";
             maskedTextBox2.Text = "";
             maskedTextBox3.Text = " ";
             txtTyreNo.Text = "";
             maskedTextBox4.Text = "";
-            maskedTextBox5.Text = "";
+            maskedTextBox5.Text = "";*/
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -175,21 +188,17 @@ namespace ceylon_petroleum
 
         private void exptype_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(exptype.Text=="TYRE REMOVE")
+           if(exptype.Text=="OTHER")
             {
-                txtNoTyres.Visible = true;
+                txtOthers.Visible = true;
 
             }
-            else if (exptype.Text == "TYRE ADD")
-            {
-
-                txtNoTyres.Visible = true;
-            }
+            
         }
 
         private void txtNoTyres_TextChanged(object sender, EventArgs e)
         {
-            if (txtNoTyres.Text == "1")
+          /*  if (txtNoTyres.Text == "1")
             {
                 txtTyreNo.Visible = true;
 
@@ -228,7 +237,7 @@ namespace ceylon_petroleum
                 maskedTextBox3.Visible = true;
                 maskedTextBox4.Visible = true;
                 maskedTextBox5.Visible = true;
-            }
+            }*/
            
         }
 

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtEmp = new System.Windows.Forms.ComboBox();
             this.txtempId = new System.Windows.Forms.MaskedTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.helpersub = new System.Windows.Forms.Button();
@@ -51,9 +54,9 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtEmp = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -62,6 +65,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.txtTotal);
             this.panel2.Controls.Add(this.txtEmp);
             this.panel2.Controls.Add(this.txtempId);
             this.panel2.Controls.Add(this.button3);
@@ -81,8 +86,38 @@
             this.panel2.Location = new System.Drawing.Point(12, 63);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(358, 351);
+            this.panel2.Size = new System.Drawing.Size(358, 365);
             this.panel2.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(25, 266);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(109, 30);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Total";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(198, 272);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(140, 26);
+            this.txtTotal.TabIndex = 12;
+            this.txtTotal.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // txtEmp
+            // 
+            this.txtEmp.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmp.FormattingEnabled = true;
+            this.txtEmp.Location = new System.Drawing.Point(188, 38);
+            this.txtEmp.Name = "txtEmp";
+            this.txtEmp.Size = new System.Drawing.Size(140, 27);
+            this.txtEmp.TabIndex = 10;
             // 
             // txtempId
             // 
@@ -98,10 +133,9 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(25, 301);
+            this.button3.Location = new System.Drawing.Point(25, 321);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(80, 30);
@@ -113,10 +147,9 @@
             // helpersub
             // 
             this.helpersub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.helpersub.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.helpersub.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpersub.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helpersub.ForeColor = System.Drawing.Color.Black;
-            this.helpersub.Location = new System.Drawing.Point(134, 301);
+            this.helpersub.Location = new System.Drawing.Point(134, 321);
             this.helpersub.Margin = new System.Windows.Forms.Padding(2);
             this.helpersub.Name = "helpersub";
             this.helpersub.Size = new System.Drawing.Size(80, 30);
@@ -128,10 +161,9 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(245, 301);
+            this.button1.Location = new System.Drawing.Point(245, 321);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 30);
@@ -143,7 +175,7 @@
             // helperpaya
             // 
             this.helperpaya.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.helperpaya.Location = new System.Drawing.Point(188, 234);
+            this.helperpaya.Location = new System.Drawing.Point(198, 234);
             this.helperpaya.Margin = new System.Windows.Forms.Padding(2);
             this.helperpaya.Name = "helperpaya";
             this.helperpaya.Size = new System.Drawing.Size(141, 26);
@@ -152,7 +184,7 @@
             // helperpaid
             // 
             this.helperpaid.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.helperpaid.Location = new System.Drawing.Point(188, 193);
+            this.helperpaid.Location = new System.Drawing.Point(198, 193);
             this.helperpaid.Margin = new System.Windows.Forms.Padding(2);
             this.helperpaid.Name = "helperpaid";
             this.helperpaid.Size = new System.Drawing.Size(141, 26);
@@ -162,7 +194,7 @@
             // helpercomm
             // 
             this.helpercomm.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.helpercomm.Location = new System.Drawing.Point(188, 158);
+            this.helpercomm.Location = new System.Drawing.Point(198, 158);
             this.helpercomm.Margin = new System.Windows.Forms.Padding(2);
             this.helpercomm.Name = "helpercomm";
             this.helpercomm.Size = new System.Drawing.Size(141, 26);
@@ -276,13 +308,14 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Column7});
             this.dataGridView2.Location = new System.Drawing.Point(374, 63);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(661, 351);
+            this.dataGridView2.Size = new System.Drawing.Size(661, 365);
             this.dataGridView2.TabIndex = 11;
             // 
             // Column1
@@ -315,6 +348,11 @@
             this.Column6.HeaderText = "Salary_Payble";
             this.Column6.Name = "Column6";
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Total";
+            this.Column7.Name = "Column7";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -334,20 +372,11 @@
             this.label6.TabIndex = 71;
             this.label6.Text = "Enter salary for Employees";
             // 
-            // txtEmp
-            // 
-            this.txtEmp.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmp.FormattingEnabled = true;
-            this.txtEmp.Location = new System.Drawing.Point(188, 38);
-            this.txtEmp.Name = "txtEmp";
-            this.txtEmp.Size = new System.Drawing.Size(140, 27);
-            this.txtEmp.TabIndex = 10;
-            // 
             // helper_salary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1044, 425);
+            this.ClientSize = new System.Drawing.Size(1044, 439);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.panel2);
@@ -392,5 +421,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.ComboBox txtEmp;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

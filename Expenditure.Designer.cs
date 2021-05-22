@@ -47,7 +47,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(258, 56);
             this.button4.TabIndex = 9;
-            this.button4.Text = "DB connection Check Here";
+            this.button4.Text = "Expenditure Report";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

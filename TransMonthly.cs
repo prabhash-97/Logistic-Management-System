@@ -50,7 +50,7 @@ namespace ceylon_petroleum
 
         private void TransMonthly_Load(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+           // panel1.Visible = false;
 
         }
         //private int Index_No;
@@ -148,7 +148,7 @@ namespace ceylon_petroleum
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (txtMonthSearch.Text.Trim() != string.Empty && textBox1.Text.Trim() !=string.Empty)
+            if (txtMthSrch.Text.Trim() != string.Empty && textBox1.Text.Trim() !=string.Empty)
             {
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
@@ -156,7 +156,7 @@ namespace ceylon_petroleum
                 cmd.Connection = con;
 
                 cmd.CommandText = "Select * from Daily_trans where Month=@Month and Year(Date)=@Year";
-                cmd.Parameters.AddWithValue("@Month", txtMonthSearch.Text);
+                cmd.Parameters.AddWithValue("@Month", txtMthSrch.Text);
                 cmd.Parameters.AddWithValue("@Year", textBox1.Text);
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
@@ -236,7 +236,7 @@ namespace ceylon_petroleum
         {
             if (textAmount.Text.Trim() != string.Empty)
             {
-                string month = txtMonthSearch.Text;
+                string month = txtMthSrch.Text;
                 decimal amount = decimal.Parse(textAmount.Text);
                 string year = txtYear.Text;
                 string date = dateTimePicker1.Text;
@@ -265,6 +265,8 @@ namespace ceylon_petroleum
                 cnn.Close();
                 */
                 MessageBox.Show("Monthly Income stored Successfully");
+                txtYear.Text = "";
+                textAmount.Text = "";
             }
             else
             {
@@ -377,7 +379,7 @@ namespace ceylon_petroleum
                  bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
              }
 
-             panel1.Visible = true;
+            // panel1.Visible = true;
              SqlConnection con = new SqlConnection();
              con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
              SqlCommand cmd = new SqlCommand();

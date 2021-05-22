@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            //this.CrystalReportRevenue1 = new ceylon_petroleum.CrystalReportRevenue();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.MonthyTransDetReport1 = new ceylon_petroleum.MonthyTransDetReport();
             this.SuspendLayout();
@@ -54,6 +53,7 @@
             this.Name = "CrystalForm_Monthly";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrystalForm_Monthly";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

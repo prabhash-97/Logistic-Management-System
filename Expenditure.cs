@@ -20,12 +20,13 @@ namespace ceylon_petroleum
 
         private void button4_Click(object sender, EventArgs e)
         {
-            DBConnection();
+            Expenditure_Report er = new Expenditure_Report();
+            er.Show();
         }
 
         private void DBConnection()
         {
-            string ConnectString = "datasource=127.0.0.1;port=3306;database=logisticmanagmentsystem;username=root;password=;";
+            /*string ConnectString = "datasource=127.0.0.1;port=3306;database=logisticmanagmentsystem;username=root;password=;";
             MySqlConnection DBConnect = new MySqlConnection(ConnectString);
             try
             {
@@ -36,7 +37,7 @@ namespace ceylon_petroleum
             {
                 MessageBox.Show(e.Message);
 
-            }
+            }*/
 
 
         }

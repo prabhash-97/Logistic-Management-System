@@ -161,6 +161,18 @@ namespace ceylon_petroleum
             txtMobile.Text = DS.Tables[0].Rows[0][5].ToString();
             //gender = DS.Tables[0].Rows[0][7].ToString();
             DatetimeDob.Text = DS.Tables[0].Rows[0][7].ToString();
+            
+            string gender = DS.Tables[0].Rows[0][6].ToString();
+           // bool isChecked = radioButton1.Checked;
+            if (gender.Equals( "Male"))
+            {
+                radioButton1.Checked=true;
+            }
+            else
+            {
+                radioButton2.Checked = true;
+            }
+
 
             /* firTxt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
              txtJobStaDat.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
@@ -175,7 +187,7 @@ namespace ceylon_petroleum
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (txtempId.Text.Trim() != string.Empty)
+            if (maskedTextBox1.Text.Trim() != string.Empty)
             {
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
@@ -183,7 +195,7 @@ namespace ceylon_petroleum
                 cmd.Connection = con;
 
                 cmd.CommandText = "Select * from employee_details where Employee_Id=@Emp_Id";
-                cmd.Parameters.AddWithValue("@Emp_Id", txtempId.Text);
+                cmd.Parameters.AddWithValue("@Emp_Id", maskedTextBox1.Text);
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 DA.Fill(DS);

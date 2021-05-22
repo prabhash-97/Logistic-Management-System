@@ -175,5 +175,15 @@ namespace ceylon_petroleum
             dripaid.Text = DS.Tables[0].Rows[0][4].ToString();
             dripaya.Text = DS.Tables[0].Rows[0][5].ToString();
         }
+
+        private void txtEmployee_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace ceylon_petroleum
 {
@@ -22,21 +22,27 @@ namespace ceylon_petroleum
         {
             if (txtMthSrch.Text.Trim() != string.Empty)
             {
-                MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;database=logisticmanagmentsystem;username=root;password=; convert zero datetime=TRUE");
-
+               
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
                 con.Open();
 
-                MySqlCommand cmd;
-                cmd = con.CreateCommand();
-                cmd.CommandText = "Select max(m.income) as Income,m.Year,i.Insu_Cost from monthlytrans m,inventory i where i.Month=@Month and m.Month=@Month ";
+                cmd.CommandText="  select sum(Total) as Monthly_salary_expenditure from helper_sal where YEAR(open_date) = @Year and Datename(Month, open_date)= @Month";
+               /* cmd.CommandText = "Select * from Daily_trans where Month=@Month and Year(Date)=@Year";*/
                 cmd.Parameters.AddWithValue("@Month", txtMthSrch.Text);
+                cmd.Parameters.AddWithValue("@Year", txtYear.Text);
+                SqlDataReader myread;
+                myread = cmd.ExecuteReader();
+                if (myread.Read())
+                {
+                    txtMonSalExp.Text = myread["Monthly_salary_expenditure"].ToString();
+                }
 
-                MySqlDataReader sdr = cmd.ExecuteReader();
-                DataTable dtRecords = new DataTable();
-                dtRecords.Load(sdr);
+                search2();
+                search1();
 
-                dataGridView1.DataSource = dtRecords;
-                con.Close();
             }
             else
             {
@@ -44,11 +50,65 @@ namespace ceylon_petroleum
             }
         }
 
+        void search1()
+        {
+            if (txtMthSrch.Text.Trim() != string.Empty)
+            {
+
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+                cmd.CommandText = " select income  from monthlytrans where Date=( select max(Date) from monthlytrans where Month=@Month and Year=@Year);";
+                /* cmd.CommandText = "Select * from Daily_trans where Month=@Month and Year(Date)=@Year";*/
+                cmd.Parameters.AddWithValue("@Month", txtMthSrch.Text);
+                cmd.Parameters.AddWithValue("@Year", txtYear.Text);
+                SqlDataReader myread;
+                myread = cmd.ExecuteReader();
+                if (myread.Read())
+                {
+                    txtIncome.Text = myread["income"].ToString();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter Month to search");
+            }
+        }
+
+        void search2()
+        {
+            if (txtMthSrch.Text.Trim() != string.Empty)
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+                cmd.CommandText = " select sum(Amount) as Total_Amount_Expenditure from expenditure  where Datename(Month,Date)='may' and YEAR(Date)='2021';";
+                /* cmd.CommandText = "Select * from Daily_trans where Month=@Month and Year(Date)=@Year";*/
+                cmd.Parameters.AddWithValue("@Month", txtMthSrch.Text);
+                cmd.Parameters.AddWithValue("@Year", txtYear.Text);
+                SqlDataReader myread;
+                myread = cmd.ExecuteReader();
+                if (myread.Read())
+                {
+                    txtTotalAExpe.Text = myread["Total_Amount_Expenditure"].ToString();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter Month to search");
+            }
+        }
+
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtIncome.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            txtYear.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            txtInsuranceCost.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,40 +120,37 @@ namespace ceylon_petroleum
 
         private void button3_Click(object sender, EventArgs e)
         {
-            float a, b;
+            float a, b, c;
 
-            bool isAValid = float.TryParse(txtNetIncome.Text, out a);
-            bool isBValid = float.TryParse(txtInsuranceCost.Text, out b);
+            bool isAValid = float.TryParse(txtMonSalExp.Text, out a);
+            bool isBValid = float.TryParse(txtNetIncome.Text, out b);
+            bool isCValid = float.TryParse(txtTotalAExpe.Text, out c);
 
-            if (isAValid && isBValid)
-                txtNetProfit.Text = (a-b).ToString();
+            if (isAValid && isBValid && isCValid)
+                txtNetProfit.Text = (b-(a+c)).ToString();
             else
                 MessageBox.Show("invalid Input");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            float income = float.Parse(txtIncome.Text);
-            float insurancecost = float.Parse(txtYear.Text);
-            float profit = float.Parse(txtNetProfit.Text);
+            float totalExpe = float.Parse(txtTotalAExpe.Text);
             float netincome = float.Parse(txtNetIncome.Text);
+            float netprofit = float.Parse(txtNetProfit.Text);
+            float monSalExpe = float.Parse(txtMonSalExp.Text);
             string month = txtMthSrch.Text;
-            string year = txtInsuranceCost.Text;
+            string income = txtIncome.Text;
+            
+            dataGridView2.Rows.Add(txtMthSrch.Text,txtYear.Text,txtIncome.Text,txtMonSalExp.Text,txtTotalAExpe.Text, txtNetIncome.Text,txtNetProfit.Text);
 
-
-            dataGridView2.Rows.Add(txtInsuranceCost.Text, txtMthSrch.Text,txtIncome.Text,txtYear.Text,txtNetIncome.Text,txtNetProfit.Text);
-            MySqlConnection cnn = new MySqlConnection("datasource=127.0.0.1;port=3306;database=logisticmanagmentsystem;username=root;password=;");
-
-            MySqlCommand cmd = null;
-            string cmdString = "";
-            cnn.Open();
-
-            cmdString = "insert into profit(Year,Month,Income,Insu_Cost,Net_Income,Profit)values('" + year + "','" + month + "','" + income+ "','" + insurancecost + "','" + netincome + "','" +profit + "')";
-
-            cmd = new MySqlCommand(cmdString, cnn);
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = "insert into profit(Year,Month,Income,Mon_Sal_Expe,Total_Expe,Net_Income,Profit)values('" +txtYear.Text + "','" + month + "','" + income + "','" + monSalExpe+ "','" + totalExpe+ "','"+netincome+"','" + netprofit + "')";
             cmd.ExecuteNonQuery();
-
-            cnn.Close();
+            con.Close();
 
             MessageBox.Show("Data Stored Successfully");
         }
@@ -116,6 +173,12 @@ namespace ceylon_petroleum
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CrystalForm_MonthlyProfit cp = new CrystalForm_MonthlyProfit();
+            cp.ShowDialog();
         }
     }
 }

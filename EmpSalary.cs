@@ -20,6 +20,20 @@ namespace ceylon_petroleum
             FillCombo();
         }
 
+        void sum_salary()
+        {
+            float a, b, c;
+
+            bool isAValid = float.TryParse(helperpaid.Text, out a);
+            bool isBValid = float.TryParse(helperpaya.Text, out b);
+            bool isCValid = float.TryParse(helpercomm.Text, out c);
+
+            if (isAValid && isBValid && isCValid)
+                txtTotal.Text = (a + b + c).ToString();
+            else
+                MessageBox.Show("invalid Input");
+        }
+
         void FillCombo()
         {
             SqlConnection con = new SqlConnection();
@@ -60,10 +74,13 @@ namespace ceylon_petroleum
             helpercomm.Text="";
             helperpaid.Text="";
             helperpaya.Text="";
+            txtTotal.Text = "";
+
         }
 
         private void helpersub_Click(object sender, EventArgs e)
         {
+            sum_salary();
             string employee_id = txtEmp.Text;
             string open_date = helperopen.Text;
             string end_date = helperclos.Text;
@@ -71,8 +88,7 @@ namespace ceylon_petroleum
             Int64 advance = Int64.Parse(helperpaid.Text);
             float salary_payable = float.Parse(helperpaya.Text);
 
-
-            dataGridView2.Rows.Add(txtEmp.Text , helperopen.Text , helperclos.Text , helpercomm.Text , helperpaid.Text , helperpaya.Text);
+            dataGridView2.Rows.Add(txtEmp.Text , helperopen.Text , helperclos.Text , helpercomm.Text , helperpaid.Text , helperpaya.Text , txtTotal.Text);
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
@@ -80,22 +96,9 @@ namespace ceylon_petroleum
             cmd.Connection = con;
 
             con.Open();
-            cmd.CommandText = "insert into helper_sal(employee_id,open_date,end_date,commission,advance,salary_payable)values('" + employee_id + "','" + open_date + "','" + end_date + "','" + commission + "','" + advance + "','" + salary_payable + "')";
+            cmd.CommandText = "insert into helper_sal(employee_id,open_date,end_date,commission,advance,salary_payable, Total)values('" + employee_id + "','" + open_date + "','" + end_date + "','" + commission + "','" + advance + "','" + salary_payable + "','"+txtTotal.Text+"')";
             cmd.ExecuteNonQuery();
             con.Close();
-
-            /*MySqlConnection cnn = new MySqlConnection("datasource = 127.0.0.1; port = 3306; database = logisticmanagmentsystem; username = root; password =; convert zero datetime = TRUE");
-
-            MySqlCommand cmd = null;
-            string cmdString = "";
-            cnn.Open();
-
-            cmdString = "insert into helper_sal(employee_id,open_date,end_date,commission,advance,salary_payable)values('" + employee_id + "','" + open_date + "','" + end_date + "','" + commission + "','" + advance + "','" + salary_payable + "')";
-
-            cmd = new MySqlCommand(cmdString, cnn);
-            cmd.ExecuteNonQuery();
-
-            cnn.Close();*/
 
             MessageBox.Show("Data Stored Successfully");
         }
@@ -123,6 +126,16 @@ namespace ceylon_petroleum
         }
 
         private void helbow_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

@@ -88,11 +88,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ceylon_petroleumDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalForm_AdExpenditure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalForm_AdExpenditure.Designer.cs">
+      <DependentUpon>CrystalForm_AdExpenditure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalForm_OpExpenditure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalForm_OpExpenditure.Designer.cs">
+      <DependentUpon>CrystalForm_OpExpenditure.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrystalForm_Monthly.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CrystalForm_Monthly.Designer.cs">
       <DependentUpon>CrystalForm_Monthly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalForm_MonthlyProfit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalForm_MonthlyProfit.Designer.cs">
+      <DependentUpon>CrystalForm_MonthlyProfit.cs</DependentUpon>
     </Compile>
     <Compile Include="CrystalForm_VehicleDet.cs">
       <SubType>Form</SubType>
@@ -130,6 +148,12 @@
     <Compile Include="Employee.designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrative_ExpenditureReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Administrative_ExpenditureReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Expenditure.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +165,24 @@
     </Compile>
     <Compile Include="EmpSalary.Designer.cs">
       <DependentUpon>EmpSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperationalExpenditureReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OperationalExpenditureReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Expenditure_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenditure_Report.Designer.cs">
+      <DependentUpon>Expenditure_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyProfitReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonthlyProfitReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="MonthyTransDetReport.cs">
       <AutoGen>True</AutoGen>
@@ -198,18 +240,23 @@
       <DependentUpon>VehicleDetailsReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View and Update.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View and Update.Designer.cs" />
     <EmbeddedResource Include="Add Vehicles.resx">
       <DependentUpon>Add Vehicles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminstExpen.resx">
       <DependentUpon>AdminstExpen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalForm_AdExpenditure.resx">
+      <DependentUpon>CrystalForm_AdExpenditure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalForm_OpExpenditure.resx">
+      <DependentUpon>CrystalForm_OpExpenditure.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalForm_Monthly.resx">
       <DependentUpon>CrystalForm_Monthly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalForm_MonthlyProfit.resx">
+      <DependentUpon>CrystalForm_MonthlyProfit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalForm_VehicleDet.resx">
       <DependentUpon>CrystalForm_VehicleDet.cs</DependentUpon>
@@ -229,11 +276,26 @@
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrative_ExpenditureReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Administrative_ExpenditureReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Expenditure.resx">
       <DependentUpon>Expenditure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmpSalary.resx">
       <DependentUpon>EmpSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationalExpenditureReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OperationalExpenditureReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenditure_Report.resx">
+      <DependentUpon>Expenditure_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyProfitReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MonthlyProfitReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MonthyTransDetReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -273,7 +335,6 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VehicleDetailsReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View and Update.resx" />
     <None Include="ceylon_petroleumDataSet.xsc">
       <DependentUpon>ceylon_petroleumDataSet.xsd</DependentUpon>
     </None>

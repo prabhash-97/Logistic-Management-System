@@ -82,7 +82,7 @@ namespace ceylon_petroleum
 
         private void licenceDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            View_and_Update vi = new View_and_Update();
+            EditVehicels vi = new EditVehicels();
             vi.Show();
 
         }
