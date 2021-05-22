@@ -18,6 +18,7 @@ namespace ceylon_petroleum
         {
             InitializeComponent();
             FillCombo();
+            txtTotal.Visible = false;
         }
 
         void sum_salary()
@@ -81,6 +82,7 @@ namespace ceylon_petroleum
         private void helpersub_Click(object sender, EventArgs e)
         {
             sum_salary();
+            txtTotal.Visible = true;
             string employee_id = txtEmp.Text;
             string open_date = helperopen.Text;
             string end_date = helperclos.Text;

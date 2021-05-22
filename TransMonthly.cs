@@ -191,6 +191,7 @@ namespace ceylon_petroleum
 
             if (txtMonth.Text.Trim() != string.Empty)
             {
+                income();
                 //string date = dateTimePicker1.Text;
                 string month = txtMonth.Text;
                 string tripe = txtTripe.Text;
@@ -208,23 +209,18 @@ namespace ceylon_petroleum
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 DA.Fill(DS);
-                
-
-                /* MySqlConnection cnn = new MySqlConnection("datasource=127.0.0.1;port=3306;database=logisticmanagmentsystem;username=root;password=; convert zero datetime=TRUE");
-
-                 MySqlCommand cmd = null;
-                 string cmdString = "";
-                 cnn.Open();
-
-                 cmdString = "update dailytrans set Month='" + this.txtMonth.Text + "',Tripe='" + this.txtTripe.Text + "',BowserType='" + this.txtBowserType.Text + "',Low_km='" + this.textBox3.Text + "',Up_km='" + this.textBox7.Text + "',NetAmount='" + this.txtNetAmount.Text + "' where Transaction_Id='" + this.txtTransId.Text + "';";
-
-                 cmd = new MySqlCommand(cmdString, cnn);
-                 cmd.ExecuteNonQuery();
-
-                 cnn.Close();*/
 
                 MessageBox.Show("Data updated Successfully");
                 serach();
+                txtMonth.Text = " ";
+                txtBowserType.Text = " ";
+                txtTripe.Text = " ";
+                txtNetAmount.Text = "";
+                dateTimePicker1.Value = DateTimePicker.MinimumDateTime;
+                textBox3.Text = "";
+                textBox7.Text = "";
+                txtVehicleId.Text = "";
+
             }
             else
             {
@@ -312,6 +308,14 @@ namespace ceylon_petroleum
 
                 MessageBox.Show("Data deleted Successfully");
                 serach();
+                txtMonth.Text = " ";
+                txtBowserType.Text = " ";
+                txtTripe.Text = " ";
+                txtNetAmount.Text = "";
+                dateTimePicker1.Value = DateTimePicker.MinimumDateTime;
+                textBox3.Text = "";
+                textBox7.Text = "";
+                txtVehicleId.Text = "";
             }
             else
             {
@@ -376,7 +380,7 @@ namespace ceylon_petroleum
         {
             if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
              {
-                 bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                 bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString());
              }
 
             // panel1.Visible = true;
@@ -390,16 +394,16 @@ namespace ceylon_petroleum
              DataSet DS = new DataSet();
              DA.Fill(DS);
 
-            rowid = Int64.Parse(DS.Tables[0].Rows[0][0].ToString());
+            rowid = Int64.Parse(DS.Tables[0].Rows[0][8].ToString());
 
-            txtMonth.Text = DS.Tables[0].Rows[0][2].ToString();
-            txtBowserType.Text = DS.Tables[0].Rows[0][4].ToString();
-            txtTripe.Text= DS.Tables[0].Rows[0][3].ToString();
-            textBox3.Text= DS.Tables[0].Rows[0][5].ToString();
-            textBox7.Text= DS.Tables[0].Rows[0][6].ToString();
-            txtVehicleId.Text = DS.Tables[0].Rows[0][8].ToString();
-            txtNetAmount.Text = DS.Tables[0].Rows[0][7].ToString();
-            dateTimePicker2.Text = DS.Tables[0].Rows[0][1].ToString();
+            txtMonth.Text = DS.Tables[0].Rows[0][1].ToString();
+            txtBowserType.Text = DS.Tables[0].Rows[0][3].ToString();
+            txtTripe.Text= DS.Tables[0].Rows[0][2].ToString();
+            textBox3.Text= DS.Tables[0].Rows[0][4].ToString();
+            textBox7.Text= DS.Tables[0].Rows[0][5].ToString();
+            txtVehicleId.Text = DS.Tables[0].Rows[0][7].ToString();
+            txtNetAmount.Text = DS.Tables[0].Rows[0][6].ToString();
+            dateTimePicker2.Text = DS.Tables[0].Rows[0][0].ToString();
 
         }
 
@@ -415,7 +419,7 @@ namespace ceylon_petroleum
             cmd.Connection = con;
 
             cmd.CommandText = "Select * from Daily_trans where Month=@Month and Year(Date)=@Year";
-            cmd.Parameters.AddWithValue("@Month", txtMonthSearch.Text);
+            cmd.Parameters.AddWithValue("@Month", txtMthSrch.Text);
             cmd.Parameters.AddWithValue("@Year", textBox1.Text);
             SqlDataAdapter DA = new SqlDataAdapter(cmd);
             DataSet DS = new DataSet();

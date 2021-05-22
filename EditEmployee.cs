@@ -84,6 +84,15 @@ namespace ceylon_petroleum
 
                 MessageBox.Show("Data updated Successfully");
                 LoadDataIntoDataGridView();
+
+                firTxt.Text = "";
+                nicTxt.Text = "";
+                txtAddres.Text = "";
+                txtMobile.Text = "";
+                JobStartDate.Text = "";
+                radioButton1.Checked = false;
+                radioButton2.Checked = false;
+                DatetimeDob.Value = DateTimePicker.MinimumDateTime;
             }
             else
             {
@@ -122,6 +131,14 @@ namespace ceylon_petroleum
 
                 MessageBox.Show("Data deleted Successfully");
                 LoadDataIntoDataGridView();
+                firTxt.Text = "";
+                nicTxt.Text = "";
+                txtAddres.Text = "";
+                txtMobile.Text = "";
+                JobStartDate.Text = "";
+                radioButton1.Checked = false;
+                radioButton2.Checked = false;
+                DatetimeDob.Value = DateTimePicker.MinimumDateTime;
             }
             else
             {
@@ -173,16 +190,6 @@ namespace ceylon_petroleum
                 radioButton2.Checked = true;
             }
 
-
-            /* firTxt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-             txtJobStaDat.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-             txtJobId.Text =dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-             nicTxt.Text =dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-             AddTxt.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-             txtMobile.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-             // radioButton1.Checked
-             DatetimeDob.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
-             jobtitleTxt.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();*/
         }
 
         private void button6_Click(object sender, EventArgs e)

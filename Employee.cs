@@ -166,21 +166,17 @@ namespace ceylon_petroleum
             cmd.ExecuteNonQuery();
             con.Close();
 
-
-            /*MySqlConnection cnn = new MySqlConnection("datasource=127.0.0.1;port=3306;database=logisticmanagmentsystem;username=root;password=;");
-
-            MySqlCommand cmd = null;
-            string cmdString = "";
-            cnn.Open();
-
-            cmdString = "insert into employee(F_name,Job_Id,NIC,Address,Mobile_No,Gender,DOB,Job_Title)values('" + fname + "','" + jobid + "','" + nic + "','" + address + "','" + mobile + "','" +gender + "','"+dob+"','" + jobtitle + "')";
-
-            cmd = new MySqlCommand(cmdString, cnn);
-            cmd.ExecuteNonQuery();
-
-            cnn.Close();*/
-
             MessageBox.Show("Data Stored Successfully");
+
+            firTxt.Text = "";
+            txtEmpId.Text = "";
+            txtAddr.Text = "";
+            txtJobStaDat.Text = "";
+            mobTxt.Text = "";
+            jobtitleTxt.Text = "";
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            DatetimeDob.Value = DateTimePicker.MinimumDateTime;
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)

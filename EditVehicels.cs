@@ -24,7 +24,7 @@ namespace ceylon_petroleum
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
-            string sql = "select * from employee_details";
+            string sql = "select * from employee_details where Job_Title= 'Driver'";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             SqlDataReader myreader;
@@ -78,6 +78,20 @@ namespace ceylon_petroleum
 
                 MessageBox.Show("Data updated Successfully");
                 LoadDataIntoDataGridView();
+                txtVehicleId.Text = "";
+                txtTyreNo.Text = "";
+                txtVehicleId.Text = "";
+                txtNoTyres.Text = "";
+                dateAddToSetvi.Value = DateTimePicker.MinimumDateTime;
+                txtDriverId.Text = "";
+                txtBrowserType.Text = "";
+                maskedTextBox1.Text = "";
+                maskedTextBox2.Text = "";
+                maskedTextBox3.Text = "";
+                maskedTextBox4.Text = "";
+                maskedTextBox5.Text = "";
+                maskedTextBox6.Text = "";
+                maskedTextBox7.Text = "";
             }
             else
             {
@@ -102,6 +116,20 @@ namespace ceylon_petroleum
 
                 MessageBox.Show("Data updated Successfully");
                 LoadDataIntoDataGridView();
+                txtVehicleId.Text = "";
+                txtTyreNo.Text = "";
+                txtVehicleId.Text = "";
+                txtNoTyres.Text = "";
+                dateAddToSetvi.Value = DateTimePicker.MinimumDateTime;
+                txtDriverId.Text = "";
+                txtBrowserType.Text = "";
+                maskedTextBox1.Text = "";
+                maskedTextBox2.Text = "";
+                maskedTextBox3.Text = "";
+                maskedTextBox4.Text = "";
+                maskedTextBox5.Text = "";
+                maskedTextBox6.Text = "";
+                maskedTextBox7.Text = "";
             }
             else
             {
@@ -121,7 +149,7 @@ namespace ceylon_petroleum
         {
             if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
+                bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString());
                 //bid = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             }
 
@@ -135,7 +163,7 @@ namespace ceylon_petroleum
             DataSet DS = new DataSet();
             DA.Fill(DS);
 
-            rowid = int.Parse(DS.Tables[0].Rows[0][6].ToString());
+            rowid = int.Parse(DS.Tables[0].Rows[0][8].ToString());
 
             txtVehicleId.Text = DS.Tables[0].Rows[0][0].ToString();
             txtDriverId.Text = DS.Tables[0].Rows[0][4].ToString();
@@ -143,8 +171,8 @@ namespace ceylon_petroleum
             txtNoTyres.Text = DS.Tables[0].Rows[0][3].ToString();
             txtTyreNo.Text = DS.Tables[0].Rows[0][1].ToString();
             maskedTextBox1.Text = DS.Tables[0].Rows[0][5].ToString();
-            maskedTextBox2.Text = DS.Tables[0].Rows[0][7].ToString();
-            txtBrowserType.Text= DS.Tables[0].Rows[0][8].ToString();
+            maskedTextBox2.Text = DS.Tables[0].Rows[0][6].ToString();
+            txtBrowserType.Text= DS.Tables[0].Rows[0][7].ToString();
         }
 
         private void v(object sender, EventArgs e)

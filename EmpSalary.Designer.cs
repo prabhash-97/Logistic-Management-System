@@ -106,6 +106,7 @@
             this.txtTotal.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(198, 272);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(140, 26);
             this.txtTotal.TabIndex = 12;
             this.txtTotal.TextChanged += new System.EventHandler(this.textBox1_TextChanged);

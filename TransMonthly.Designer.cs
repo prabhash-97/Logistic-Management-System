@@ -186,6 +186,7 @@
             this.txtNetAmount.Location = new System.Drawing.Point(323, 139);
             this.txtNetAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtNetAmount.Name = "txtNetAmount";
+            this.txtNetAmount.ReadOnly = true;
             this.txtNetAmount.Size = new System.Drawing.Size(282, 26);
             this.txtNetAmount.TabIndex = 47;
             // 

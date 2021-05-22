@@ -81,7 +81,8 @@ namespace ceylon_petroleum
 
         private void button2_Click(object sender, EventArgs e)
         {
-           // Int64 Id = Int64.Parse(txtID.Text);
+            income();
+            // Int64 Id = Int64.Parse(txtID.Text);
             string date = dateTimePicker1.Text;
             string month = txtMonth.Text;
             string tripe = txtTripe.Text;
@@ -126,7 +127,6 @@ namespace ceylon_petroleum
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //Multiply();
             income();
         }
 

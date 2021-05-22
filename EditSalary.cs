@@ -18,9 +18,24 @@ namespace ceylon_petroleum
         {
             InitializeComponent();
             LoadDataIntoDataGridView();
+            txtTotal.Visible = false;
         }
 
-        private int Index_No;
+        void sum_salary()
+        {
+            float a, b, c;
+
+            bool isAValid = float.TryParse(dricomm.Text, out a);
+            bool isBValid = float.TryParse(dripaid.Text, out b);
+            bool isCValid = float.TryParse(dripaya.Text, out c);
+
+            if (isAValid && isBValid && isCValid)
+                txtTotal.Text = (a + b + c).ToString();
+            else
+                MessageBox.Show("invalid Input");
+        }
+
+        //private int Index_No;
         private void LoadDataIntoDataGridView()
         {
             SqlConnection con = new SqlConnection();
@@ -57,29 +72,37 @@ namespace ceylon_petroleum
 
         private void drisubmit_Click(object sender, EventArgs e)
         {
-            if (Index_No != 0)
+            if (empid.Text.Trim() != string.Empty)
             {
-
+                sum_salary();
                 string employee_id = empid.Text;
                 string open_date = dristartdate.Text;
                 string end_date = drienddate.Text;
                 Int64 commission = Int64.Parse(dricomm.Text);
                 Int64 advance = Int64.Parse(dripaid.Text);
                 float salary_payable = float.Parse(dripaya.Text);
-
+                txtTotal.Visible = true;
 
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = "data source = DESKTOP-F7RFSAJ\\MSSQLSERVER2019;database=ceylon_petroleum;integrated security=True";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
-                cmd.CommandText = "update helper_sal set employee_id='" + this.empid.Text + "',open_date='" + this.dristartdate.Text + "',end_date='" + this.drienddate.Text + "',commision='" + this.dricomm.Text + "',advance='" + this.dripaid.Text + "',salary_payable='" + this.dripaya.Text + "' where employee_id='" + this.txtEmployee.Text + "';";
+                cmd.CommandText = "update helper_sal set open_date='" + this.dristartdate.Text + "', Total = '"+this.txtTotal.Text+"' , salary_payable = '"+this.dripaya.Text+"' , advance = '"+this.dripaid.Text +"' , commission = '"+this.dricomm.Text+"'  , end_date = '"+this.drienddate.Text+"' , employee_id = '"+this.empid.Text+"' where employee_id='" + this.empid.Text + "';";
+                //cmd.CommandText = "update helper_sal set employee_id='" + this.empid.Text + "',open_date='" + this.dristartdate.Text + "',end_date='" + this.drienddate.Text + "',commision='" + this.dricomm.Text + "',advance='" + this.dripaid.Text + "',Total='"+this.txtTotal.Text+"',salary_payable='" + this.dripaya.Text + "' where employee_id='" + this.empid.Text + "';";
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 DA.Fill(DS);
 
                 MessageBox.Show("Data Upadted Successfully");
                 LoadDataIntoDataGridView();
+                empid.Text = "";
+                dristartdate.Value = DateTimePicker.MinimumDateTime; ;
+                drienddate.Value = DateTimePicker.MinimumDateTime; ;
+                dricomm.Text = "";
+                dripaid.Text = "";
+                dripaya.Text = "";
+                txtTotal.Text = "";
             }
             else
             {
@@ -142,6 +165,13 @@ namespace ceylon_petroleum
 
                 MessageBox.Show("Data Deleted Successfully");
                 LoadDataIntoDataGridView();
+                empid.Text = "";
+                dristartdate.Value = DateTimePicker.MinimumDateTime; ;
+                drienddate.Value = DateTimePicker.MinimumDateTime; ;
+                dricomm.Text = "";
+                dripaid.Text = "";
+                dripaya.Text = "";
+                txtTotal.Text = "";
             }
             else
             {
@@ -153,7 +183,7 @@ namespace ceylon_petroleum
         {
             if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
+                bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
             }
 
             SqlConnection con = new SqlConnection();
@@ -166,7 +196,7 @@ namespace ceylon_petroleum
             DataSet DS = new DataSet();
             DA.Fill(DS);
 
-            rowid = Int64.Parse(DS.Tables[0].Rows[0][6].ToString());
+            rowid = Int64.Parse(DS.Tables[0].Rows[0][7].ToString());
 
             empid.Text = DS.Tables[0].Rows[0][0].ToString();
             dristartdate.Text = DS.Tables[0].Rows[0][1].ToString();
@@ -174,6 +204,7 @@ namespace ceylon_petroleum
             dricomm.Text = DS.Tables[0].Rows[0][3].ToString();
             dripaid.Text = DS.Tables[0].Rows[0][4].ToString();
             dripaya.Text = DS.Tables[0].Rows[0][5].ToString();
+            txtTotal.Text = DS.Tables[0].Rows[0][6].ToString();
         }
 
         private void txtEmployee_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)

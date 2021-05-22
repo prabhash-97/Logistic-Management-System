@@ -126,7 +126,7 @@ namespace ceylon_petroleum
             bool isBValid = float.TryParse(txtNetIncome.Text, out b);
             bool isCValid = float.TryParse(txtTotalAExpe.Text, out c);
 
-            if (isAValid && isBValid && isCValid)
+            if (isBValid)
                 txtNetProfit.Text = (b-(a+c)).ToString();
             else
                 MessageBox.Show("invalid Input");
